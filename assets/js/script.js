@@ -4,6 +4,7 @@
 function passwordLength () {
   var userPasswordLength = window.prompt('Password length? Min 8 characters - max 128');
   console.log(userPasswordLength);
+  return userPasswordLength
 }
 
 //Would you like uppercase?
@@ -30,9 +31,12 @@ function specialCharacters () {
   console.log (userSpecialCharacters);
 }
 
+passwordLength ()
+
 //validate each input, make sure at least one character type is selected
 
 //generate password
+function generatePassword (passwordLength, upperCase,lowercase,numberTrue,specialCharacters);
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
