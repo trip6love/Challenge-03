@@ -36,8 +36,9 @@ passwordLength ()
 //validate each input, make sure at least one character type is selected
 
 //generate password
-function generatePassword (passwordLength, upperCase,lowercase,numberTrue,specialCharacters);
-
+function generatePassword (passwordLength, upperCase,lowercase,numberTrue,specialCharacters); {
+  return pLength
+}
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
