@@ -27,85 +27,77 @@ function passwordLength() {
     return true
 
   }
-}
+
 
 
 
 //Would you like uppercase?
-function upperCase () {
-  var userUpperCase = window.confirm('Would you like upper case? Click OK for yes and CANCEL for no.');
-  if(userUpperCase ) {
-    console.log("The user wants a password with uppercase.")
-    passwordCharacterOptions = (passwordCharacterOptions + "ABCDEFGHIJKLMNOPQRSTUVWXYZ")
-    console.log("Options thus far " + passwordCharacterOptions);
-    lowercase();
-    return true
+  function upperCase () {
+    var userUpperCase = window.confirm('Would you like upper case? Click OK for yes and CANCEL for no.');
+    if(userUpperCase ) {
+      console.log("The user wants a password with uppercase.")
+      passwordCharacterOptions = (passwordCharacterOptions + "ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+      console.log("Options thus far " + passwordCharacterOptions);
+      lowercase();
+      return true
 
-  } else {
-    console.log("The user wants a password without uppercase!")
-    lowercase();
+    } else {
+      console.log("The user wants a password without uppercase!")
+      lowercase();
+    }
   }
-}
 
-//Would you like lowercase?
-function lowercase () {
-  var userLowerCase = window.confirm('Would you like lower case? Click OK for yes and CANCEL for no.');
-  if(userLowerCase) {
-    console.log("The user wants a password with lowercase.")
-    passwordCharacterOptions = (passwordCharacterOptions + "abcdefghijklmnopqrstuvwxyz");
-    console.log("Options thus far " + passwordCharacterOptions);
-    numberTrue();
-    return true
+  //Would you like lowercase?
+  function lowercase () {
+    var userLowerCase = window.confirm('Would you like lower case? Click OK for yes and CANCEL for no.');
+    if(userLowerCase) {
+      console.log("The user wants a password with lowercase.")
+      passwordCharacterOptions = (passwordCharacterOptions + "abcdefghijklmnopqrstuvwxyz");
+      console.log("Options thus far " + passwordCharacterOptions);
+      numberTrue();
+      return true
 
-  } else {
-    console.log("The user wants a password without lowercase!");
-    numberTrue();
+    } else {
+      console.log("The user wants a password without lowercase!");
+      numberTrue();
+    }
   }
-}
 
-//Would you like to include numbers?
-function numberTrue () {
-  var userNumberTrue = window.confirm('Would you like to include numbers? Click OK for yes and CANCEL for no.');
-  if (userNumberTrue) {
-    console.log("The user wants a password with numbers.")
-    passwordCharacterOptions = (passwordCharacterOptions + "1234567890");
-    console.log("Options thus far" + passwordCharacterOptions);
-    specialCharacters();
-    return true
+  //Would you like to include numbers?
+  function numberTrue () {
+    var userNumberTrue = window.confirm('Would you like to include numbers? Click OK for yes and CANCEL for no.');
+    if (userNumberTrue) {
+      console.log("The user wants a password with numbers.")
+      passwordCharacterOptions = (passwordCharacterOptions + "1234567890");
+      console.log("Options thus far " + passwordCharacterOptions);
+      specialCharacters();
+      return true
 
-  } else {
-    console.log("The user wants a password without numbers!");
-    specialCharacters();
+    } else {
+      console.log("The user wants a password without numbers!");
+      specialCharacters();
+    }
   }
-}
 
-//Would you like to include special Characters?
-function specialCharacters () {
-  var userSpecialCharacters = window.confirm('Would you like to use special characters? Click OK for yes and CANCEL for no.');
-  if (userSpecialCharacters) {
-    console.log("The user wants a password with special characters.");
-    passwordCharacterOptions = (passwordCharacterOptions + "!#$%&'()*+,-./:;<=>?@[^_`{|}~ ");
-    console.log("Options thus far" + passwordCharacterOptions);
-    writePassword();
-    return true
+  //Would you like to include special Characters?
+  function specialCharacters () {
+    var userSpecialCharacters = window.confirm('Would you like to use special characters? Click OK for yes and CANCEL for no.');
+    if (userSpecialCharacters) {
+      console.log("The user wants a password with special characters.");
+      passwordCharacterOptions = (passwordCharacterOptions + "!#$%&'()*+,-./:;<=>?@[^_`{|}~ ");
+      console.log("Options thus far " + passwordCharacterOptions);
+      writePassword();
+      return true
 
-  } else {
-    console.log("The user wants a password without special characters!");
-    writePassword();
+    } else {
+      console.log("The user wants a password without special characters!");
+      alert("You have to have characters!");
+      upperCase();
+
+    }
   }
+
 }
-
-passwordLength();
-
-
-
-
-
-
-
-
-
-
 //validate each input, make sure at least one character type is selected
 
 
@@ -115,12 +107,20 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
+  var genPassword = '';
+  var genPassword = passwordCharacterOptions.split('');
+  for (var i = 0; i < length; i++) {
+    genPassword += characters.charAt(Math.floor(Math.random() = userPasswordLength));
+
+  }
+  
+  
   var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+  passwordText.value = genPassword;
 
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", passwordLength);
+
