@@ -24,7 +24,7 @@ function passwordLength() {
 
     console.log("The user wants a password that is " + userPasswordLength + " character(s).")
     upperCase();
-    return true
+    return userPasswordLength;
 
   }
 
@@ -96,8 +96,8 @@ function passwordLength() {
 
     }
   }
-
-}
+  
+};
 //validate each input, make sure at least one character type is selected
 
 
@@ -111,7 +111,7 @@ function writePassword() {
   var genPassword = passwordCharacterOptions.split('');
   for (var i = 0; i < length; i++) {
     genPassword += characters.charAt(Math.floor(Math.random() = userPasswordLength));
-
+  
   }
   
   
