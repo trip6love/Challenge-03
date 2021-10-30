@@ -1,5 +1,5 @@
 // Assignment code here
-var passwordCharacterOptions = ""
+var passwordOptions 
 var userPasswordLength
 // // Get references to the #generate element *Start*
 var generateBtn = document.querySelector("#generate");
@@ -7,24 +7,26 @@ var generateBtn = document.querySelector("#generate");
 
 //How long would you like your password to be? (min 8 - max 128)
 function passwordLength() {
-   userPasswordLength = prompt('Password length? Min 8 characters - max 128');
+  passwordOptions=""
+  userPasswordLength = prompt('Password length? Min 8 characters - max 128');
   if (userPasswordLength === "" || userPasswordLength === null) {
     alert('You must enter a number between 8 and 128!');
     return passwordLength();
-
+    //making sure the user stays within the guidelines
   } else if (userPasswordLength > 128) {
     alert('You must choose a number that is less than 128!');
-
+    //send back
     return passwordLength();
 
   } else if (userPasswordLength < 8) {
     alert('You must choose a number that is 8 or greater!');
-
+    //send back
     return passwordLength();
 
   } else {
     console.log("The user wants a password that is " + userPasswordLength + " character(s).")
-    
+
+    // Call the next function
     upperCase();
   }
 }
@@ -34,12 +36,14 @@ function upperCase() {
   var userUpperCase = window.confirm('Would you like upper case? Click OK for yes and CANCEL for no.');
   if(userUpperCase ) {
     console.log("The user wants a password with uppercase.")
-    passwordCharacterOptions = (passwordCharacterOptions + "ABCDEFGHIJKLMNOPQRSTUVWXYZ")
-    console.log("Options thus far " + passwordCharacterOptions);
+    passwordOptions = (passwordOptions + "ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+    //log the current options for password values
+    console.log("Options thus far " + passwordOptions);
     lowerCase();
 
   } else {
     console.log("The user wants a password without uppercase!")
+    // call the next function
     lowerCase();  
   }
 }
@@ -49,12 +53,14 @@ function lowerCase() {
   var userLowerCase = window.confirm('Would you like lower case? Click OK for yes and CANCEL for no.');
   if(userLowerCase) {
     console.log("The user wants a password with lowercase.")
-    passwordCharacterOptions = (passwordCharacterOptions + "abcdefghijklmnopqrstuvwxyz");
-    console.log("Options thus far " + passwordCharacterOptions);
+    passwordOptions = (passwordOptions + "abcdefghijklmnopqrstuvwxyz");
+    //log the current options for password values
+    console.log("Options thus far " + passwordOptions);
     numberTrue();
 
   } else {
     console.log("The user wants a password without lowercase!");
+    //call the next function
     numberTrue();  
   }
 }
@@ -64,12 +70,14 @@ function numberTrue() {
   var userNumberTrue = window.confirm('Would you like to include numbers? Click OK for yes and CANCEL for no.');
   if (userNumberTrue) {
     console.log("The user wants a password with numbers.")
-    passwordCharacterOptions = (passwordCharacterOptions + "1234567890");
-    console.log("Options thus far " + passwordCharacterOptions);
+    passwordOptions = (passwordOptions + "1234567890");
+    //log the current options for password values
+    console.log("Options thus far " + passwordOptions);
     specialCharacters();
     
   } else {
     console.log("The user wants a password without numbers!");
+    //call the next function
     specialCharacters();
   }
 }
@@ -79,28 +87,29 @@ function specialCharacters() {
   var userSpecialCharacters = window.confirm('Would you like to use special characters? Click OK for yes and CANCEL for no.');
   if (userSpecialCharacters) {
     console.log("The user wants a password with special characters.");
-    passwordCharacterOptions = (passwordCharacterOptions + "!#$%&'()*+,-./:;<=>?@[^_`{|}~ ");
-    console.log("Options thus far " + passwordCharacterOptions);
+    passwordOptions = (passwordOptions + "!#$%&'()*+,-./:;<=>?@[^_`{|}~ ");
+    //log the current options for password values
+    console.log("Options thus far " + passwordOptions);
     writePassword();
-  } 
-} 
 
+  } else {
+    console.log("The user wants a password without special characters!");
+    //call the writePassword function to generate what user has input above
+    writePassword();
+  }
+} 
 
 // add event listener for button
 generateBtn.addEventListener("click", passwordLength);
 
-// Write password to the #password input
+// Write the password to  #password input
 function writePassword() {
 
-  //convert string to numbers
-  
-  //random array selection
-  
+  //Create Random selection from array
   var genPassword = '';
-  var characters = passwordCharacterOptions.split('');
-
+  var array = passwordOptions.split('');
   for (var i = 0; i < userPasswordLength; i++) {
-    genPassword += characters[(Math.floor(Math.random() * characters.length))];
+    genPassword += array[(Math.floor(Math.random() * array.length))];
 
   }
 
@@ -108,3 +117,5 @@ function writePassword() {
   console.log('Password: ' + genPassword)
   passwordText.value = genPassword;
 };
+
+//END
