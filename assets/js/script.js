@@ -1,7 +1,7 @@
 // Assignment code here
 var passwordOptions 
 var userPasswordLength
-// // Get references to the #generate element *Start*
+// // Get references to the #generate element *start*
 var generateBtn = document.querySelector("#generate");
 
 
@@ -15,15 +15,16 @@ function passwordLength() {
     //making sure the user stays within the guidelines
   } else if (userPasswordLength > 128) {
     alert('You must choose a number that is less than 128!');
-    //send back
+    //send back to if
     return passwordLength();
 
   } else if (userPasswordLength < 8) {
     alert('You must choose a number that is 8 or greater!');
-    //send back
+    //send back to if
     return passwordLength();
 
   } else {
+    //log the users password length
     console.log("The user wants a password that is " + userPasswordLength + " character(s).")
 
     // Call the next function
@@ -36,8 +37,9 @@ function upperCase() {
   var userUpperCase = window.confirm('Would you like upper case? Click OK for yes and CANCEL for no.');
   if(userUpperCase ) {
     console.log("The user wants a password with uppercase.")
+    //give password options access to UPPERCASE
     passwordOptions = (passwordOptions + "ABCDEFGHIJKLMNOPQRSTUVWXYZ")
-    //log the current options for password values
+    //log the currentOptions for password values
     console.log("Options thus far " + passwordOptions);
     lowerCase();
 
@@ -53,6 +55,7 @@ function lowerCase() {
   var userLowerCase = window.confirm('Would you like lower case? Click OK for yes and CANCEL for no.');
   if(userLowerCase) {
     console.log("The user wants a password with lowercase.")
+    //give passwordOptions access to lowercase
     passwordOptions = (passwordOptions + "abcdefghijklmnopqrstuvwxyz");
     //log the current options for password values
     console.log("Options thus far " + passwordOptions);
@@ -70,6 +73,7 @@ function numberTrue() {
   var userNumberTrue = window.confirm('Would you like to include numbers? Click OK for yes and CANCEL for no.');
   if (userNumberTrue) {
     console.log("The user wants a password with numbers.")
+    //give passwordOptions access to numbers
     passwordOptions = (passwordOptions + "1234567890");
     //log the current options for password values
     console.log("Options thus far " + passwordOptions);
@@ -87,6 +91,7 @@ function specialCharacters() {
   var userSpecialCharacters = window.confirm('Would you like to use special characters? Click OK for yes and CANCEL for no.');
   if (userSpecialCharacters) {
     console.log("The user wants a password with special characters.");
+    //give passwordOptions access to special characters
     passwordOptions = (passwordOptions + "!#$%&'()*+,-./:;<=>?@[^_`{|}~ ");
     //log the current options for password values
     console.log("Options thus far " + passwordOptions);
